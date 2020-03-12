@@ -1,9 +1,10 @@
 import GSheetProcessor from './gsheetsprocessor.js';
 
-const reader = (options, callback) => {
-  GSheetProcessor(options, results => {
-    callback(results);
-  });
+const reader = (options) => {
+  return new Promise( (resolve, reject)  => {
+    GSheetProcessor(options, results => {
+      resolve(results);
+    })});
 };
 
 module.exports = reader;
